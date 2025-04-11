@@ -1,155 +1,128 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import { ChevronDown } from 'lucide-react'
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <div className="flex items-center">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center mr-2">
-                <span className="text-sky-600 font-bold text-lg">P</span>
-              </div>
-              <span className={`text-xl font-bold ${isScrolled ? "text-sky-600" : "text-white"}`}>ProSoft</span>
-            </div>
-          </Link>
+    <header className="bg-[#00A6ED] w-full">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3">
+        <div className="flex items-center justify-between bg-white rounded-full px-4 py-2">
+        <Link href="/" className="flex items-center space-x-3">
+  {/* Logo in a circle */}
+  <div className="flex justify-center items-center">
+  <Image 
+    src="/logo.png" 
+    alt="ProSoft Logo" 
+    width={120}  
+    height={120} 
+    className="object-contain"
+  />
+</div>
+
+
+  
+</Link>
+
+
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10">
+          <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className={`font-medium transition-colors ${
-                isScrolled ? "text-gray-800 hover:text-sky-600" : "text-white hover:text-sky-200"
-              }`}
+              className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               Home
+              <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
             <Link
               href="#services"
-              className={`font-medium transition-colors ${
-                isScrolled ? "text-gray-800 hover:text-sky-600" : "text-white hover:text-sky-200"
-              }`}
+              className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               Services
+              <ChevronDown className="ml-1 h-4 w-4" />
+            </Link>
+            <Link
+              href="#about"
+              className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
+            >
+              About
+              <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
             <Link
               href="#portfolio"
-              className={`font-medium transition-colors ${
-                isScrolled ? "text-gray-800 hover:text-sky-600" : "text-white hover:text-sky-200"
-              }`}
+              className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
-              Portfolio
-            </Link>
-            <Link
-              href="#testimonials"
-              className={`font-medium transition-colors ${
-                isScrolled ? "text-gray-800 hover:text-sky-600" : "text-white hover:text-sky-200"
-              }`}
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#contact"
-              className={`font-medium transition-colors ${
-                isScrolled ? "text-gray-800 hover:text-sky-600" : "text-white hover:text-sky-200"
-              }`}
-            >
-              Contact
+              Our Work
+              <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
           </nav>
 
-          <button
-            className={`px-6 py-2.5 rounded-full font-medium hidden md:block transition-colors ${
-              isScrolled ? "bg-sky-600 text-white hover:bg-sky-700" : "bg-white text-sky-600 hover:bg-sky-50"
-            }`}
+          <Link
+            href="#contact"
+            className="px-6 py-2 rounded-full font-medium bg-[#00A6ED] text-white hover:bg-[#0091d4] transition-colors"
           >
-            Get Started
-          </button>
+            Contact
+          </Link>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? (
-              <X className={isScrolled ? "text-gray-800" : "text-white"} />
-            ) : (
-              <Menu className={isScrolled ? "text-gray-800" : "text-white"} />
-            )}
+          <button 
+            className="md:hidden text-gray-700"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <div className="md:hidden bg-white shadow-lg">
+          <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col space-y-4">
             <Link
               href="/"
-              className="font-medium text-gray-800 hover:text-sky-600"
+              className="font-medium text-gray-700 hover:text-[#00A6ED]"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="#services"
-              className="font-medium text-gray-800 hover:text-sky-600"
+              className="font-medium text-gray-700 hover:text-[#00A6ED]"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
-              href="#portfolio"
-              className="font-medium text-gray-800 hover:text-sky-600"
+              href="#about"
+              className="font-medium text-gray-700 hover:text-[#00A6ED]"
               onClick={() => setIsMenuOpen(false)}
             >
-              Portfolio
+              About
             </Link>
             <Link
-              href="#testimonials"
-              className="font-medium text-gray-800 hover:text-sky-600"
+              href="#portfolio"
+              className="font-medium text-gray-700 hover:text-[#00A6ED]"
               onClick={() => setIsMenuOpen(false)}
             >
-              Testimonials
+              Our Work
             </Link>
             <Link
               href="#contact"
-              className="font-medium text-gray-800 hover:text-sky-600"
+              className="px-5 py-2 rounded-full font-medium bg-[#00A6ED] text-white hover:bg-[#0091d4] inline-block text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
-            <button
-              className="px-5 py-2 rounded-full font-medium bg-sky-600 text-white hover:bg-sky-700 w-full"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get Started
-            </button>
           </div>
         </div>
       )}
     </header>
   )
 }
-
