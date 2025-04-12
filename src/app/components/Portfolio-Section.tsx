@@ -74,10 +74,8 @@ export default function PortfolioSection() {
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
-  }, [isInView, controls]);
+  }, [isInView]);
 
   // Animation variants
   const containerVariants = {
@@ -106,36 +104,12 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section
-      ref={ref}
-      className="py-20 relative"
-      style={{
-        background:
-          "linear-gradient(to bottom, #1D1D1D 0%, #171717 50%, #000000 100%)",
-        color: "#FFFFFF",
-      }}
-    >
-      {/* Top curved shape */}
-      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden">
-        <svg
-          viewBox="0 0 1440 100"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-auto"
-          style={{ display: "block" }}
-        >
-          <path
-            d="M0,100 C480,0 960,0 1440,100 L1440,0 L0,0 Z"
-            fill="#1D1D1D"
-          />
-        </svg>
-      </div>
-
+    <section ref={ref} className="py-20 relative bg-zinc-900">
       <div className="container mx-auto px-4 md:px-6 pt-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-16 text-white"
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={isInView && { opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
           <div className="inline-block px-6 py-2 rounded-full bg-[#003D53] text-[#6BD8FF] font-medium text-sm mb-6">
@@ -168,22 +142,26 @@ export default function PortfolioSection() {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-18 gap-y-32 w-full max-w-6xl mx-auto"
         >
           {visibleProjects.map((project, index) => (
-            <motion.div key={project.id} custom={index} variants={itemVariants}>
+            <motion.div
+              key={project.id}
+              custom={index}
+              className="w-[100%] text-white"
+            >
               {/* PROJECT IMAGE */}
-              <div className="relative h-64 md:h-72 w-full">
+              <div className="relative h-72 md:h-88 w-full">
                 <Image
-                  src={project.image || "/placeholder.svg"}
+                  src="/sample-project.jpg"
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  className="object-cover rounded-2xl"
                 />
               </div>
 
               {/* PROJECT DESC */}
-              <div className="p-6 md:p-8">
+              <div className="py-8">
                 <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
                 <p className="text-[#CECECE] mb-6">{project.description}</p>
                 <motion.button
@@ -200,13 +178,6 @@ export default function PortfolioSection() {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Pagination indicator */}
-        <div className="flex justify-center mt-12">
-          <div className="bg-[#373737] rounded-full px-4 py-2 text-[#D3D3D3]">
-            1 / 1
-          </div>
-        </div>
       </div>
     </section>
   );
