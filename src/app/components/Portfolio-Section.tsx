@@ -1,12 +1,19 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
-import { motion, useInView, useAnimation } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { motion, useInView, useAnimation } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 // Portfolio categories
-const categories = ["ALL", "DIGITAL MARKETING", "GRAPHIC DESIGNING", "UI/UX", "WEBSITES", "APPLICATIONS"]
+const categories = [
+  "ALL",
+  "DIGITAL MARKETING",
+  "GRAPHIC DESIGNING",
+  "UI/UX",
+  "WEBSITES",
+  "APPLICATIONS",
+];
 
 // Portfolio projects
 const projects = [
@@ -42,33 +49,35 @@ const projects = [
     description:
       "Strategic social media campaign across multiple platforms that increased brand engagement by 78% and generated a significant ROI. The campaign included content creation, audience targeting, and performance analytics.",
   },
-]
+];
 
 export default function PortfolioSection() {
-  const [activeCategory, setActiveCategory] = useState("ALL")
-  const [visibleProjects, setVisibleProjects] = useState(projects)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount: 0.1 })
-  const controls = useAnimation()
+  const [activeCategory, setActiveCategory] = useState("ALL");
+  const [visibleProjects, setVisibleProjects] = useState(projects);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.1 });
+  const controls = useAnimation();
 
   // Filter projects based on selected category
   const filterProjects = (category: string) => {
-    setActiveCategory(category)
+    setActiveCategory(category);
     if (category === "ALL") {
-      setVisibleProjects(projects)
+      setVisibleProjects(projects);
     } else {
-      setVisibleProjects(projects.filter((project) => project.category === category))
+      setVisibleProjects(
+        projects.filter((project) => project.category === category),
+      );
     }
-  }
+  };
 
   // Trigger animations when section comes into view
   useEffect(() => {
     if (isInView) {
-      controls.start("visible")
+      controls.start("visible");
     } else {
-      controls.start("hidden")
+      controls.start("hidden");
     }
-  }, [isInView, controls])
+  }, [isInView, controls]);
 
   // Animation variants
   const containerVariants = {
@@ -80,7 +89,7 @@ export default function PortfolioSection() {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -94,14 +103,15 @@ export default function PortfolioSection() {
         duration: 0.6,
       },
     },
-  }
+  };
 
   return (
     <section
       ref={ref}
       className="py-20 relative"
       style={{
-        background: "linear-gradient(to bottom, #1D1D1D 0%, #171717 50%, #000000 100%)",
+        background:
+          "linear-gradient(to bottom, #1D1D1D 0%, #171717 50%, #000000 100%)",
         color: "#FFFFFF",
       }}
     >
@@ -114,8 +124,10 @@ export default function PortfolioSection() {
           className="w-full h-auto"
           style={{ display: "block" }}
         >
-          <path d="M0,100 C480,0 960,0 1440,100 L1440,0 L0,0 Z"
-      fill="#1D1D1D" />
+          <path
+            d="M0,100 C480,0 960,0 1440,100 L1440,0 L0,0 Z"
+            fill="#1D1D1D"
+          />
         </svg>
       </div>
 
@@ -129,7 +141,9 @@ export default function PortfolioSection() {
           <div className="inline-block px-6 py-2 rounded-full bg-[#003D53] text-[#6BD8FF] font-medium text-sm mb-6">
             PORTFOLIO
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10">Portfolio Of Our Best Work</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10">
+            Portfolio Of Our Best Work
+          </h2>
 
           {/* Category filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -157,17 +171,8 @@ export default function PortfolioSection() {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {visibleProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              custom={index}
-              variants={itemVariants}
-              className="bg-[#1D1D1D] rounded-3xl overflow-hidden shadow-lg hover:shadow-[#6BD8FF]/10 transition-all duration-500"
-              whileHover={{
-                y: -10,
-                boxShadow: "0 10px 25px -5px rgba(107, 216, 255, 0.2)",
-                transition: { duration: 0.3 },
-              }}
-            >
+            <motion.div key={project.id} custom={index} variants={itemVariants}>
+              {/* PROJECT IMAGE */}
               <div className="relative h-64 md:h-72 w-full">
                 <Image
                   src={project.image || "/placeholder.svg"}
@@ -176,21 +181,21 @@ export default function PortfolioSection() {
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
+
+              {/* PROJECT DESC */}
               <div className="p-6 md:p-8">
                 <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
                 <p className="text-[#CECECE] mb-6">{project.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-[#6BD8FF]">{project.category}</span>
-                  <motion.button
-                    className="flex items-center gap-2 bg-[#373737] hover:bg-[#6BD8FF] hover:text-[#171717] text-white px-5 py-2 rounded-full transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Learn more
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-                  
-                </div>
+                <motion.button
+                  className="flex items-center gap-2 cursor-pointer gap-4 bg-[#373737] hover:bg-[#6BD8FF] hover:text-[#171717] text-white p-2 rounded-full transition-colors pl-6 duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Learn more
+                  <div className="flex items-center justify-center h-9 w-9 rounded-full bg-white">
+                    <ArrowRight color="black" className="w-5 h-5 rotate-320" />
+                  </div>
+                </motion.button>
               </div>
             </motion.div>
           ))}
@@ -198,9 +203,11 @@ export default function PortfolioSection() {
 
         {/* Pagination indicator */}
         <div className="flex justify-center mt-12">
-          <div className="bg-[#373737] rounded-full px-4 py-2 text-[#D3D3D3]">1 / 1</div>
+          <div className="bg-[#373737] rounded-full px-4 py-2 text-[#D3D3D3]">
+            1 / 1
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
