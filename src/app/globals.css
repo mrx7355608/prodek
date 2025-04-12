@@ -35,3 +35,7 @@ body {
 .my-shadow {
   box-shadow: -4px 6px 4px 0px #9ce6ff;
 }
+
+.my-dark-shadow {
+  box-shadow: -4px 4px 3px 0px #777;
+}
