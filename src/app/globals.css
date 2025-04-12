@@ -31,3 +31,7 @@ body {
   position: absolute;
   bottom: 0;
 }
+
+.my-shadow {
+  box-shadow: -4px 6px 4px 0px #9ce6ff;
+}

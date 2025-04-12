@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export default function About() {
   const ref = useRef(null);
@@ -35,6 +36,11 @@ export default function About() {
               empower businesses and individuals, combining creativity with
               technology to shape a smarter future.
             </p>
+
+            <button className="cursor-pointer mb-10 px-7 py-3 text-sm rounded-full bg-sky-400 text-white font-bold flex items-center gap-2 my-shadow">
+              Get Started
+              <ArrowRight size={19} />
+            </button>
 
             <div className="grid grid-cols-3 gap-6">
               <motion.div
