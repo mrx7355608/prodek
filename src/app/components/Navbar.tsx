@@ -1,34 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { ChevronDown } from 'lucide-react'
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronDown, Menu } from "lucide-react";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#00A6ED] w-full">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3">
-        <div className="flex items-center justify-between bg-white rounded-full px-4 py-2">
-        <Link href="/" className="flex items-center space-x-3">
-  {/* Logo in a circle */}
-  <div className="flex justify-center items-center">
-  <Image 
-    src="/logo.png" 
-    alt="ProSoft Logo" 
-    width={120}  
-    height={120} 
-    className="object-contain"
-  />
-</div>
-
-
-  
-</Link>
-
-
+    <header className="bg-transparent absolute top-0 z-20 w-full">
+      <div className="max-w-6xl mx-auto px-4 py-3">
+        <div className="flex items-center justify-between bg-white rounded-full px-3 md:px-2 py-2">
+          <Link href="/" className="flex items-center space-x-3">
+            {/* Logo in a circle */}
+            <div className="flex justify-center items-center">
+              <Image
+                src="/logo.png"
+                alt="ProSoft Logo"
+                width={120}
+                height={120}
+                className="object-contain"
+              />
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -64,19 +59,17 @@ export default function Navbar() {
 
           <Link
             href="#contact"
-            className="px-6 py-2 rounded-full font-medium bg-[#00A6ED] text-white hover:bg-[#0091d4] transition-colors"
+            className="hidden lg:block px-6 py-2 rounded-full font-medium bg-[#00A6ED] text-white hover:bg-[#0091d4] transition-colors"
           >
             Contact
           </Link>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-gray-700"
+          <button
+            className="md:hidden p-2 text-gray-700 rounded-full hover:bg-gray-100"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <Menu />
           </button>
         </div>
       </div>
@@ -124,5 +117,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }
