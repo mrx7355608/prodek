@@ -9,8 +9,8 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-transparent absolute top-0 z-20 w-full">
-      <div className="max-w-6xl mx-auto px-4 py-3">
+    <header className="bg-transparent absolute top-2 z-20 w-full">
+      <div className="max-w-6xl mx-auto p-4">
         <div className="flex items-center justify-between bg-white rounded-full px-3 md:px-2 py-2">
           <Link href="/" className="flex items-center space-x-3">
             {/* Logo in a circle */}
