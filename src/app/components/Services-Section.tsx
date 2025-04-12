@@ -39,14 +39,25 @@ const services = [
 export default function ServicesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleWheel = (e) => {
+    const container = scrollRef.current;
+    if (container) {
+      e.preventDefault();
+      container.scrollLeft += e.deltaY * 3;
+    }
+  };
 
   return (
     <section
       ref={ref}
+      onWheel={handleWheel}
       className="py-20 relative overflow-hidden"
       style={{
         background:
           "linear-gradient(to bottom, #FFFFFF 0%, #D7F3FD 32%, #AEE6FB 64%)",
+        scrollBehavior: "smooth",
       }}
     >
       <div className="overflow-hidden">
@@ -70,7 +81,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* LIST OF SERVICES */}
-        <ServicesList isInView={isInView} services={services} />
+        <ServicesList ref={scrollRef} isInView={isInView} services={services} />
       </div>
     </section>
   );

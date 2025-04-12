@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, forwardRef, RefObject } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -8,53 +8,47 @@ interface Props {
   isInView: boolean;
 }
 
-export default function ServicesList({ services, isInView }: Props) {
+const ServicesList = forwardRef<HTMLDivElement, Props>((props, ref) => {
+  const { services, isInView } = props;
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleWheel = (e) => {
-    const container = scrollRef.current;
-    if (container) {
-      // Prevent vertical scroll
-      e.preventDefault();
-      container.scrollLeft += e.deltaY * 3;
-    }
-  };
+  if (!ref) {
+    return;
+  }
 
-  const handleMouseDown = (e) => {
-    if (!scrollRef.current) {
+  const handleMouseDown = (e: any) => {
+    if (!ref.current) {
       return;
     }
 
     setIsDragging(true);
-    setStartX(e.pageX - scrollRef.current.offsetLeft * 8);
-    setScrollLeft(scrollRef.current.scrollLeft);
+    setStartX(e.pageX - ref.current.offsetLeft);
+    setScrollLeft(ref.current.scrollLeft);
   };
 
   const handleMouseLeave = () => setIsDragging(false);
   const handleMouseUp = () => setIsDragging(false);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: any) => {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX - scrollRef.current!.offsetLeft;
+    const x = e.pageX - ref.current!.offsetLeft;
     const walk = (x - startX) * 1.5; // scroll speed
-    scrollRef.current!.scrollLeft = scrollLeft - walk;
+    ref.current!.scrollLeft = scrollLeft - walk;
   };
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.7, delay: 0.5 }}
-      className={`w-[100vw] p-8 pt-0 flex overflow-scroll gap-8 scroll-smooth ${isDragging ? "cursor-grab" : "cursor-normal"}`}
+      className={`select-none w-[100vw] p-8 pt-0 flex overflow-scroll gap-8 scroll-smooth ${isDragging ? "cursor-grab" : "cursor-normal"}`}
       onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
-      onWheel={handleWheel}
-      ref={scrollRef}
+      ref={ref}
     >
       {services.map((service) => (
         <div
@@ -99,4 +93,7 @@ export default function ServicesList({ services, isInView }: Props) {
       ))}
     </motion.div>
   );
-}
+});
+
+ServicesList.displayName = "ServicesList";
+export default ServicesList;
