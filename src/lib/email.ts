@@ -1,7 +1,19 @@
-import FormData from "form-data"; // form-data v4.0.1
-import Mailgun from "mailgun.js"; // mailgun.js v11.1.0
+import FormData from "form-data";
+import Mailgun from "mailgun.js";
 
-export async function sendSimpleMessage() {
+type Data = {
+  email: string;
+  subject: string;
+  message: string;
+  name: string;
+};
+
+export async function sendSimpleMessage({
+  email,
+  subject,
+  message,
+  name,
+}: Data) {
   const mailgunApiKey = process.env.MAILGUN_API_KEY;
   if (!mailgunApiKey) {
     throw new Error(
@@ -18,15 +30,15 @@ export async function sendSimpleMessage() {
     const data = await mg.messages.create(
       "sandbox9cbe43c569f34153b8efc76c9d298927.mailgun.org",
       {
-        from: "Prosoft Cyber Hub <fawad.g26334@iqra.edu.pk>",
+        from: `${name} <${email}>`,
         to: ["Test User<mrx7355608@gmail.com>"],
-        subject: "Hello Dear, are you there",
-        text: "Congratulations Fawad Imran, you just sent an email with Mailgun! You are truly awesome!",
+        subject: `${subject} - ${name}`,
+        text: message,
       },
     );
 
     console.log(data);
   } catch (error) {
-    console.log(error); //logs any error
+    throw error;
   }
 }

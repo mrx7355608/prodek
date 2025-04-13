@@ -5,8 +5,12 @@ import type React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send } from "lucide-react";
+import Spinner from "./Spinner";
 
 export default function ContactSection() {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,19 +25,39 @@ export default function ContactSection() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    // Show success message
-    alert("Message sent successfully!");
+  const handleSubmit = async (e: React.FormEvent) => {
+    try {
+      e.preventDefault();
+      setLoading(true);
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send email, please try again later");
+      }
+
+      setMessage("Email has been sent! We will contact you shortly");
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err) {
+      console.log((err as Error).message);
+      setError("Unable to send email, please try again later");
+    } finally {
+      setLoading(false);
+      setTimeout(() => setMessage(""), 5000);
+      setTimeout(() => setError(""), 5000);
+    }
   };
 
   return (
@@ -57,7 +81,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-15">
           {/* FORM */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -67,8 +91,10 @@ export default function ContactSection() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-lg justify-center"
+              className="bg-white rounded-lg justify-center w-full"
             >
+              {error && <p className="mb-5 text-red-500">{error}</p>}
+              {message && <p className="mb-5 text-green-500">{message}</p>}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                 <div>
                   <input
@@ -122,9 +148,10 @@ export default function ContactSection() {
               <button
                 type="submit"
                 className="w-full bg-sky-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-sky-700 transition-colors flex items-center justify-center"
+                disabled={loading}
               >
-                <Send className="w-5 h-5 mr-2" />
-                Send Message
+                {loading ? <Spinner /> : <Send className="w-5 h-5 mr-2" />}
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </motion.div>
