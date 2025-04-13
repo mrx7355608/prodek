@@ -104,7 +104,7 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section ref={ref} className="py-20 relative bg-zinc-900">
+    <section ref={ref} className="py-20 relative bg-zinc-900" id="portfolio">
       <div className="container mx-auto px-4 md:px-6 pt-10">
         <motion.div
           className="text-center mb-16 text-white"

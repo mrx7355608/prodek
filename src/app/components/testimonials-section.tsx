@@ -99,7 +99,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.7 }}
           className="max-w-6xl mx-auto"
         >
-          <div className="relative py-8 w-full">
+          <div className="relative py-8 w-full mt-8">
             <div
               className="flex gap-0 transition-transform duration-900 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
                   key={testimonial.id}
                   className="w-full min-w-sm max-w-sm px-3 flex flex-col"
                 >
-                  <div className="bg-gray-50 p-5 md:p-7 h-full rounded-3xl shadow-lg border border-gray-100">
+                  <div className="bg-gray-50 p-5 md:p-7 h-full rounded-3xl shadow-lg border border-gray-200">
                     {/* STARS */}
                     <div className="flex mt-1 mb-6">
                       {[...Array(5)].map((_, i) => (
@@ -125,7 +125,7 @@ export default function TestimonialsSection() {
                     </div>
 
                     {/* REVIEW */}
-                    <p className="text-gray-700 mb-6 font-medium h-[50%] overflow-y-auto scrollbar-hidden">
+                    <p className="text-gray-700 mb-6 font-medium h-[50%] overflow-y-scroll my-hide-scrollbar">
                       {testimonial.content}
                     </p>
 

@@ -43,3 +43,16 @@ body {
 .my-glow {
   box-shadow: 0px 0px 20px 0px yellow;
 }
+
+.my-hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.my-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}

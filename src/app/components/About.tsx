@@ -10,7 +10,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="relative py-20 bg-white" ref={ref}>
+    <section className="relative py-20 bg-white" ref={ref} id="about">
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col md:flex-row items-center justify-between w-full">
           {/* Left side content */}

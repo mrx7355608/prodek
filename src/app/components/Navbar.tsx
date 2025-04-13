@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDown, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,28 +32,24 @@ export default function Navbar() {
               className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               Home
-              <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
             <Link
               href="#services"
               className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               Services
-              <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
             <Link
               href="#about"
               className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               About
-              <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
             <Link
               href="#portfolio"
               className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               Our Work
-              <ChevronDown className="ml-1 h-4 w-4" />
             </Link>
           </nav>
 

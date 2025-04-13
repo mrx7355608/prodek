@@ -54,6 +54,7 @@ export default function ServicesSection() {
       ref={ref}
       onWheel={handleWheel}
       className="py-20 relative overflow-hidden"
+      id="services"
       style={{
         background:
           "linear-gradient(to bottom, #FFFFFF 0%, #D7F3FD 32%, #AEE6FB 64%)",

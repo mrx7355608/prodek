@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -20,9 +21,11 @@ export default function HeroSection() {
               We help businesses grow by creating innovative digital solutions
               that connect brands with their customers.
             </p>
-            <button className="px-6 py-3 bg-white text-black text-sm cursor-pointer rounded-full font-medium hover:bg-sky-50 transition-colors shadow-lg">
-              See our work
-            </button>
+            <Link href="#portfolio">
+              <button className="px-6 py-3 bg-white text-black text-sm cursor-pointer rounded-full font-medium hover:bg-sky-50 transition-colors shadow-lg">
+                See our work
+              </button>
+            </Link>
           </motion.div>
 
           <motion.div
