@@ -102,7 +102,7 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-15">
+        <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-15 overflow-x-hidden">
           {/* FORM */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}

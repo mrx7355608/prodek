@@ -100,7 +100,7 @@ export default function TestimonialsSection() {
           className="md:max-w-6xl md:mx-auto overflow-x-auto"
         >
           {/* LIST OF TESTIMONIALS */}
-          <div className="relative py-8 w-full mt-8">
+          <div className=" relative py-8 w-full mt-8">
             <div
               className="flex transition-transform duration-900 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
