@@ -8,31 +8,31 @@ import ServicesList from "./services/ServicesList";
 const services = [
   {
     id: 1,
-    title: "Web Development",
+    title: "Web Design",
     description:
-      "Custom web applications built with the latest technologies to deliver exceptional user experiences.",
-    image: "/service.png",
+      "We design modern, responsive websites that blend aesthetics with functionality—crafted to engage users, boost conversions, and elevate your online presence.",
+    image: "/web-design-service.jpg",
   },
   {
     id: 2,
-    title: "Mobile App Development",
+    title: "App Development",
     description:
-      "Native and cross-platform mobile applications that engage users and drive business growth.",
-    image: "/service.png",
+      "From concept to launch, we create powerful, user-centric mobile and web applications with seamless performance and intuitive interfaces across all platforms.",
+    image: "/app-dev-service.jpg",
   },
   {
     id: 3,
-    title: "UI/UX Design",
+    title: "Branding",
     description:
-      "User-centered design that creates intuitive, seamless, and enjoyable digital experiences.",
-    image: "/service.png",
+      "We help you build a distinctive brand identity through logo design, color schemes, typography, and brand voice—everything needed to tell your story and stand out in a crowded market.",
+    image: "/branding-service.jpg",
   },
   {
     id: 4,
-    title: "Digital Marketing",
+    title: "Animations",
     description:
-      "Strategic marketing solutions that increase visibility and drive conversions.",
-    image: "/service.png",
+      "We create dynamic animations and motion graphics that enhance storytelling, simplify complex ideas, and add personality to your brand—perfect for websites, apps, social media, and explainer videos.",
+    image: "/animation-service.jpg",
   },
 ];
 

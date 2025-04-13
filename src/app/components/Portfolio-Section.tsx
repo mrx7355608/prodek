@@ -8,10 +8,9 @@ import { ArrowRight } from "lucide-react";
 // Portfolio categories
 const categories = [
   "ALL",
-  "DIGITAL MARKETING",
-  "GRAPHIC DESIGNING",
-  "UI/UX",
-  "WEBSITES",
+  "BRANDING",
+  "WEB DESIGNING",
+  "ANIMATIONS",
   "APPLICATIONS",
 ];
 
@@ -28,7 +27,7 @@ const projects = [
   {
     id: 2,
     title: "E-commerce Website Redesign",
-    category: "WEBSITES",
+    category: "WEB DESIGNING",
     image: "/images/portfolio-2.jpg",
     description:
       "A complete overhaul of an online store with improved user experience, streamlined checkout process, and mobile-first approach. The redesign resulted in a 45% increase in conversion rate and significantly reduced cart abandonment.",
@@ -36,7 +35,7 @@ const projects = [
   {
     id: 3,
     title: "Brand Identity Package",
-    category: "GRAPHIC DESIGNING",
+    category: "ANIMATIONS",
     image: "/images/portfolio-3.jpg",
     description:
       "Comprehensive brand identity development including logo design, color palette, typography, and brand guidelines. The cohesive visual language helped establish a strong market presence and brand recognition.",
@@ -44,7 +43,7 @@ const projects = [
   {
     id: 4,
     title: "Social Media Campaign",
-    category: "DIGITAL MARKETING",
+    category: "BRANDING",
     image: "/images/portfolio-4.jpg",
     description:
       "Strategic social media campaign across multiple platforms that increased brand engagement by 78% and generated a significant ROI. The campaign included content creation, audience targeting, and performance analytics.",
@@ -125,7 +124,7 @@ export default function PortfolioSection() {
               <button
                 key={category}
                 onClick={() => filterProjects(category)}
-                className={`text-sm md:text-md px-3 py-1 md:px-4 md:py-2 rounded-full border-2 transition-all duration-300 ${
+                className={`cursor-pointer text-sm md:text-md px-3 py-1 md:px-4 md:py-2 rounded-full border-2 transition-all duration-300 ${
                   activeCategory === category
                     ? "bg-[#6BD8FF] text-[#171717] border-[#6BD8FF]"
                     : "bg-transparent text-[#D9D9D9] border-[#373737] hover:border-[#BFBFBF]"
