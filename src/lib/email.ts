@@ -32,7 +32,7 @@ export async function sendSimpleMessage({
       {
         from: `${name} <${email}>`,
         to: ["Test User<mrx7355608@gmail.com>"],
-        subject: `${subject} - ${name}`,
+        subject: subject,
         text: message,
       },
     );

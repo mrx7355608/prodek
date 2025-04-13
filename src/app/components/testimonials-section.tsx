@@ -58,18 +58,18 @@ export default function TestimonialsSection() {
       id="testimonials"
       className="relative py-20 bg-white text-gray-800"
     >
-      <div className="container mx-auto px-4 md:px-6 pt-[calc(5vw+40px)]">
+      <div className="container mx-auto md:px-6 pt-[calc(5vw+40px)]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="text-center px-2"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4"
+            className="inline-block px-3 py-1.5 md:px-4 md:py-1.5 bg-blue-100 text-blue-800 rounded-full text-xs md:text-sm font-medium mb-4"
           >
             TESTIMONIALS
           </motion.span>
@@ -77,15 +77,15 @@ export default function TestimonialsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-10"
+            className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-6 md:mt-10"
           >
-            What Our Clients Say
+            What Our Clients Say About Us
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-md md:text-lg text-gray-600 max-w-2xl mx-auto"
           >
             Don't just take our word for it. Here's what our clients have to say
             about working with us.
@@ -97,17 +97,18 @@ export default function TestimonialsSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.7 }}
-          className="max-w-6xl mx-auto"
+          className="md:max-w-6xl md:mx-auto overflow-x-auto"
         >
+          {/* LIST OF TESTIMONIALS */}
           <div className="relative py-8 w-full mt-8">
             <div
-              className="flex gap-0 transition-transform duration-900 ease-in-out"
+              className="flex transition-transform duration-900 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="w-full min-w-sm max-w-sm px-3 flex flex-col"
+                  className="min-w-xs max-w-xs md:min-w-sm md:max-w-sm px-4 flex flex-col"
                 >
                   <div className="bg-gray-50 p-5 md:p-7 h-full rounded-3xl shadow-lg border border-gray-200">
                     {/* STARS */}
@@ -125,13 +126,13 @@ export default function TestimonialsSection() {
                     </div>
 
                     {/* REVIEW */}
-                    <p className="text-gray-700 mb-6 font-medium h-[50%] overflow-y-scroll my-hide-scrollbar">
+                    <p className="text-sm md:text-md text-gray-700 mb-6 font-medium h-[50%] overflow-y-scroll my-hide-scrollbar">
                       {testimonial.content}
                     </p>
 
                     {/* USER */}
                     <div className="flex items-center">
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-gray-200">
+                      <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden mr-2 md:mr-4 border-2 border-gray-200">
                         <Image
                           src={testimonial.image || "/placeholder.svg"}
                           alt={testimonial.name}
@@ -140,10 +141,10 @@ export default function TestimonialsSection() {
                         />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900">
+                        <h3 className="font-bold text-gray-900 text-sm md:text-md">
                           {testimonial.name}
                         </h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-xs md:text-sm text-gray-600">
                           {testimonial.position}
                         </p>
                       </div>

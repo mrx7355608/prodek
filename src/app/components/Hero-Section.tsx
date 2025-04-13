@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative hero h-[110vh]">
+    <section className="relative flex items-center hero h-[90vh] lg:h-[110vh]">
       <div className="container mx-auto px-4 max-w-6xl relative z-10 flex items-center h-full pb-12">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <motion.div
@@ -14,15 +14,15 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Transforming Ideas into Digital Experience
+            <h1 className="pt-12 md:pt-0 text-3xl md:text-5xl font-bold mb-4 lg:mb-6">
+              Transforming Ideas into Digital Excellence
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-sky-100">
+            <p className="text-md md:text-xl mb-8 text-sky-100">
               We help businesses grow by creating innovative digital solutions
               that connect brands with their customers.
             </p>
             <Link href="#portfolio">
-              <button className="px-6 py-3 bg-white text-black text-sm cursor-pointer rounded-full font-medium hover:bg-sky-50 transition-colors shadow-lg">
+              <button className="px-4 py-2 md:px-6 md:py-3 bg-white text-black text-sm cursor-pointer rounded-full font-medium hover:bg-sky-50 transition-colors shadow-lg">
                 See our work
               </button>
             </Link>
@@ -39,7 +39,7 @@ export default function HeroSection() {
               alt="Partnership"
               width={400}
               height={400}
-              className="w-[90%] h-auto"
+              className="hidden md:block md:w-[90%] h-auto"
             />
           </motion.div>
         </div>

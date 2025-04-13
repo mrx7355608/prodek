@@ -53,7 +53,7 @@ export default function ServicesSection() {
     <section
       ref={ref}
       onWheel={handleWheel}
-      className="py-20 relative overflow-hidden"
+      className="py-20 relative overflow-x-hidden"
       id="services"
       style={{
         background:
@@ -61,20 +61,20 @@ export default function ServicesSection() {
         scrollBehavior: "smooth",
       }}
     >
-      <div className="overflow-hidden">
+      <div className="overflow-x-hidden px-0">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-block px-4 py-1 rounded-full bg-sky-100 text-sky-600 font-medium text-sm mb-6">
+          <div className="inline-block px-3 md:px-4 py-1 rounded-full bg-sky-100 text-sky-600 font-medium text-sm mb-6">
             SERVICES
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
+          <h2 className="md:px-0 px-3 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-gray-900">
             Solutions That Drive Success
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-md md:text-lg text-gray-700 max-w-3xl mx-auto">
             We offer cutting-edge digital services, from web development to
             design and beyond, helping businesses grow with seamless, innovative
             solutions.
