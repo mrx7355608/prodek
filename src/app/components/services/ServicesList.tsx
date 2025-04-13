@@ -13,19 +13,20 @@ const ServicesList = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const scrollRef = ref as RefObject<HTMLDivElement>;
 
-  if (!ref) {
+  if (!scrollRef) {
     return;
   }
 
   const handleMouseDown = (e: any) => {
-    if (!ref.current) {
+    if (!scrollRef.current) {
       return;
     }
 
     setIsDragging(true);
-    setStartX(e.pageX - ref.current.offsetLeft);
-    setScrollLeft(ref.current.scrollLeft);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
   };
 
   const handleMouseLeave = () => setIsDragging(false);
@@ -34,9 +35,9 @@ const ServicesList = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const handleMouseMove = (e: any) => {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX - ref.current!.offsetLeft;
+    const x = e.pageX - scrollRef.current!.offsetLeft;
     const walk = (x - startX) * 1.5; // scroll speed
-    ref.current!.scrollLeft = scrollLeft - walk;
+    scrollRef.current!.scrollLeft = scrollLeft - walk;
   };
   return (
     <motion.div
@@ -48,7 +49,7 @@ const ServicesList = forwardRef<HTMLDivElement, Props>((props, ref) => {
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
-      ref={ref}
+      ref={scrollRef}
     >
       {services.map((service) => (
         <div

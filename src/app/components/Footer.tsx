@@ -158,7 +158,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-center items-center">
             <p className="text-gray-400 mb-4 md:mb-0 text-center">
-              &copy; {new Date().getFullYear()} ProSoft. All rights reserved.
+              &copy; 2025 ProSoft. All rights reserved.
             </p>
           </div>
         </div>

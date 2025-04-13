@@ -41,7 +41,7 @@ export default function ServicesSection() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleWheel = (e) => {
+  const handleWheel = (e: any) => {
     const container = scrollRef.current;
     if (container) {
       e.preventDefault();
