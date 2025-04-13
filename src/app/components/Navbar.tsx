@@ -7,9 +7,8 @@ import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
-  const navbarRef = useRef<HTMLElement>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +19,6 @@ export default function Navbar() {
         headerRef.current?.classList.add("shadow-sm");
         navbarRef.current?.classList.remove("bg-white");
         navbarRef.current?.classList.add("bg-transparent");
-        setScrolled(true);
       } else if (window.scrollY < 200) {
         headerRef.current?.classList.add("bg-transparent");
         headerRef.current?.classList.remove("backdrop-blur-sm");
@@ -28,7 +26,6 @@ export default function Navbar() {
         headerRef.current?.classList.remove("shadow-sm");
         navbarRef.current?.classList.remove("bg-transparent");
         navbarRef.current?.classList.add("bg-white");
-        setScrolled(false);
       }
     };
 
