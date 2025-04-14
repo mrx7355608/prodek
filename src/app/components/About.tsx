@@ -25,16 +25,16 @@ export default function About() {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Let's Bring <span className="text-sky-500">Your Vision</span> to
-              Life With Technology
+              200+ Brains, One Heartbeat –{" "}
+              <span className="text-sky-500">Your Growth</span> Army Since 2001
             </h2>
 
             <p className="text-gray-700 mb-10 text-md">
-              We are a team of passionate developers, designers, and tech
-              enthusiasts committed to building cutting-edge digital
-              experiences. Our mission is to craft innovative solutions that
-              empower businesses and individuals, combining creativity with
-              technology to shape a smarter future.
+              In 2001, we planted our roots in Texas with one mission: to make
+              brands unstoppable. Today, Growdek is a powerhouse of 200+
+              in-house specialists—developers coding like rockstars, designers
+              painting dreams, SEO wizards conjuring Google magic, and animators
+              making pixels dance.
             </p>
 
             <button className="cursor-pointer mb-10 px-5 py-2 md:px-7 md:py-3 text-sm rounded-full bg-sky-400 text-white font-bold flex items-center gap-2 my-shadow">

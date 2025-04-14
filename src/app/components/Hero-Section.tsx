@@ -15,11 +15,13 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="pt-12 md:pt-0 text-3xl md:text-5xl font-bold mb-4 lg:mb-6">
-              Transforming Ideas into Digital Excellence
+              From Vision to Velocity – Growdek, Your 360° Growth Partner Since
+              2001
             </h1>
             <p className="text-md md:text-xl mb-8 text-sky-100">
-              We help businesses grow by creating innovative digital solutions
-              that connect brands with their customers.
+              Powered by 200+ in-house developers, designers, animators, and
+              marketing mavericks, we turn brands into legends. Texas-born.
+              Globally proven.
             </p>
             <Link href="#portfolio">
               <button className="px-4 py-2 md:px-6 md:py-3 bg-white text-black text-sm cursor-pointer rounded-full font-medium hover:bg-sky-50 transition-colors shadow-lg">
