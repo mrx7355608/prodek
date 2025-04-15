@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const font = Bricolage_Grotesque({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -58,7 +59,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Navbar />
       <body className={`${font.variable} antialiased`}>{children}</body>
+      <Footer />
     </html>
   );
 }

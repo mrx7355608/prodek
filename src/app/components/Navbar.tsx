@@ -65,19 +65,25 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="#about"
+              href="/about"
               className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               About
             </Link>
             <Link
-              href="#services"
+              href="/services"
               className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               Services
             </Link>
             <Link
-              href="#portfolio"
+              href="/pricing"
+              className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
+            >
+              Pricing
+            </Link>
+            <Link
+              href="/portfolio"
               className="font-medium text-gray-700 hover:text-[#00A6ED] flex items-center"
             >
               Our Work
@@ -85,7 +91,7 @@ export default function Navbar() {
           </nav>
 
           <Link
-            href="#contact"
+            href="/contact"
             className="hidden lg:block px-6 py-2 rounded-full font-medium bg-[#00A6ED] text-white hover:bg-[#0091d4] transition-colors"
           >
             Contact
@@ -102,47 +108,58 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link
-              href="/"
-              className="font-medium text-gray-700 hover:text-[#00A6ED]"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="#services"
-              className="font-medium text-gray-700 hover:text-[#00A6ED]"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="#about"
-              className="font-medium text-gray-700 hover:text-[#00A6ED]"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="#portfolio"
-              className="font-medium text-gray-700 hover:text-[#00A6ED]"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Our Work
-            </Link>
-            <Link
-              href="#contact"
-              className="px-5 py-2 rounded-full font-medium bg-[#00A6ED] text-white hover:bg-[#0091d4] inline-block text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-      )}
+      {isMenuOpen && <MobileMenu setIsMenuOpen={setIsMenuOpen} />}
     </header>
+  );
+}
+
+function MobileMenu({ setIsMenuOpen }) {
+  return (
+    <div className="md:hidden bg-white shadow-lg">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col space-y-4">
+        <Link
+          href="/"
+          className="font-medium text-gray-700 hover:text-[#00A6ED]"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Home
+        </Link>
+        <Link
+          href="/services"
+          className="font-medium text-gray-700 hover:text-[#00A6ED]"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Services
+        </Link>
+        <Link
+          href="/about"
+          className="font-medium text-gray-700 hover:text-[#00A6ED]"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          About
+        </Link>
+        <Link
+          href="/portfolio"
+          className="font-medium text-gray-700 hover:text-[#00A6ED]"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Our Work
+        </Link>
+        <Link
+          href="/pricing"
+          className="font-medium text-gray-700 hover:text-[#00A6ED]"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Pricing
+        </Link>
+        <Link
+          href="/contact"
+          className="px-5 py-2 rounded-full font-medium bg-[#00A6ED] text-white hover:bg-[#0091d4] inline-block text-center"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Contact
+        </Link>
+      </div>
+    </div>
   );
 }

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 // Portfolio categories
 const categories = [
@@ -169,6 +170,11 @@ export default function PortfolioSection() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
+      <div className="flex items-center justify-center">
+        <button className="px-4 py-2 bg-zinc-800 text-white rounded-full">
+          <Link href="/portfolio">See More</Link>
+        </button>
       </div>
     </section>
   );

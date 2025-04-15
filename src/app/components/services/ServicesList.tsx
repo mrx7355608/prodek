@@ -69,7 +69,7 @@ const ServicesList = forwardRef<HTMLDivElement, Props>((props, ref) => {
                   {service.title}
                 </h3>
                 <p className="text-gray-700 mb-5">{service.description}</p>
-                <Link href="#contact">
+                <Link href="/services">
                   <button className="my-dark-shadow flex items-center gap-2 mt-6 self-start bg-gray-800 font-medium text-white px-6 py-2 rounded-full cursor-pointer hover:bg-gray-900">
                     Learn More
                     <ArrowRight size={15} />

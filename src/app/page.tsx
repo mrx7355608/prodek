@@ -11,16 +11,15 @@ import About from "./components/About";
 
 export default function Home() {
   return (
-    <div >
-      <Navbar/>
-     <HeroSection/>
-     <About/>
-     <ServicesSection/>
-     <PortfolioSection/>
-     <TestimonialsSection/>
-     <ContactSection/>
-     <Footer/>
-     
+    <div>
+      <Navbar />
+      <HeroSection />
+      <About />
+      <ServicesSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 }

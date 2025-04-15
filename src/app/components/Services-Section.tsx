@@ -9,91 +9,30 @@ const services = [
   {
     id: 1,
     title: "Branding & Design",
-    description: "First Impressions That Last Forever",
+    description:
+      "We build memorable brands from the ground up. From logo design and visual identity to brand strategy, we ensure your business stands out with a consistent and powerful message.",
     image: "/branding-service.jpg",
-    offers: [
-      {
-        title: "Logo Design",
-        tagline: "Crafted to steal attention and hearts",
-      },
-      {
-        title: "Brand Identity",
-        tagline: 'Colors, fonts, and guidelines that scream "This is US."',
-      },
-      {
-        title: "Graphic Design",
-        tagline: "Social posts, brochures, ads—scroll-stoppers guaranteed.",
-      },
-      {
-        title: "Before & After Designs",
-        tagline: "Show your glow-up with jaw-dropping transformations",
-      },
-    ],
   },
   {
     id: 2,
     title: "Web & App Development",
-    description: "Digital Homes That Print Money",
+    description:
+      "We create modern, responsive, and lightning-fast websites tailored to your goals. Whether it's a simple landing page or a full-fledged web app, we combine functionality with flawless design.",
     image: "/app-dev-service.jpg",
-    offers: [
-      {
-        title: "Custom Websites",
-        tagline: "Bespoke designs that mirror your brand’s soul",
-      },
-      {
-        title: "Mobile Apps",
-        tagline: "iOS/Android apps that users obsess over",
-      },
-      {
-        title: "E-Commerce Stores",
-        tagline:
-          "Shopify, Magento, WooCommerce—cart-abandonment? Never heard of her.",
-      },
-    ],
   },
   {
     id: 3,
     title: "Digital Marketing",
-    description: "Traffic, Leads, Sales – We Turn Dials to 11",
+    description:
+      "Boost your online presence and reach the right audience. Our digital marketing services cover SEO, social media, email campaigns, and paid ads—tailored to drive results and growth.",
     image: "/branding-service.jpg",
-    offers: [
-      {
-        title: "SEO",
-        tagline: "Dominate Google’s first page. Your competitors will cry",
-      },
-      {
-        title: "PPC Ads",
-        tagline: "Laser-targeted campaigns for instant ROI.",
-      },
-      {
-        title: "Social Media Marketing",
-        tagline: "Content so addictive, followers beg for more.",
-      },
-    ],
   },
   {
     id: 4,
     title: "Animation & Video",
-    description: "Pixels That Punch Above Their Weight",
+    description:
+      "Bring your ideas to life with smooth, captivating animations. Whether it’s explainer videos, motion graphics, or interactive web animations, we craft visual stories that leave a lasting impression",
     image: "/branding-service.jpg",
-    offers: [
-      {
-        title: "2D/3D Animation",
-        tagline: "Explainer videos, ads, and product demos that convert",
-      },
-      {
-        title: "Motion Graphics",
-        tagline: "Instagram reels, YouTube intros—watch views skyrocket",
-      },
-      {
-        title: "",
-        tagline: "",
-      },
-      {
-        title: "",
-        tagline: "",
-      },
-    ],
   },
 ];
 
@@ -132,14 +71,14 @@ export default function ServicesSection() {
           <div className="inline-block px-3 md:px-4 py-1 rounded-full bg-sky-100 text-sky-600 font-medium text-sm mb-6">
             SERVICES
           </div>
-          <h2 className="md:px-0 px-3 text-3xl md:text-4xl lg:text-5xl md:max-w-2xl mx-auto font-bold mb-4 md:mb-6 text-gray-900">
-            Your Growth Playbook – Services That Crush Goals
+          <h2 className="md:px-0 px-3 text-3xl md:text-4xl lg:text-5xl md:max-w-4xl mx-auto font-bold mb-4 md:mb-6 text-gray-900">
+            Solutions That Drive Success
           </h2>
-          {/* <p className="text-md md:text-lg text-gray-700 max-w-3xl mx-auto"> */}
-          {/*   We offer cutting-edge digital services, from web development to */}
-          {/*   design and beyond, helping businesses grow with seamless, innovative */}
-          {/*   solutions. */}
-          {/* </p> */}
+          <p className="text-md md:text-lg text-gray-700 max-w-3xl mx-auto">
+            We offer cutting-edge digital services, from web development to
+            design and beyond, helping businesses grow with seamless, innovative
+            solutions.
+          </p>
         </motion.div>
 
         {/* LIST OF SERVICES */}
