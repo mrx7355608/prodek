@@ -10,7 +10,6 @@ export const DynamicHero = ({ category }: { category: string }) => {
   };
 
   const tagline = taglines[category];
-  console.log({ category, tagline });
 
   return (
     <section className="relative flex items-center hero h-[90vh] lg:h-[110vh]">
