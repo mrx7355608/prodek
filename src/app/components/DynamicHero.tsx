@@ -4,7 +4,7 @@ export const DynamicHero = ({ category }: { category: string }) => {
   const taglines: { [key: string]: string } = {
     services: "Your Growth Playbook - Services That Crush Goals",
     portfolio: "Proof In Motion - See Growth, Feel Growth",
-    about: "",
+    about: "200+ Brains, One Heartbeat – Your Growth Army Since 2001",
     contact: "Let's Make Magic - Drop Us a Line",
     pricing: "No Guesswork, Just Growth - Transparent Pricing For Every Budget",
   };
