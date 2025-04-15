@@ -6,7 +6,7 @@ import Services2 from "../components/pages-components/Services2";
 import Contact2 from "../components/pages-components/Contact2";
 import Pricing2 from "../components/pages-components/Pricing2";
 
-export default function Page({ params }) {
+export default function Page({ params }: any) {
   const { categ } = params;
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const DynamicHero = ({ category }) => {
+export const DynamicHero = ({ category }: { category: string }) => {
   const taglines: { [key: string]: string } = {
     services: "Your Growth Playbook - Services That Crush Goals",
     portfolio: "Proof In Motion - See Growth, Feel Growth",

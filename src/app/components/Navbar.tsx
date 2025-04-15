@@ -113,7 +113,7 @@ export default function Navbar() {
   );
 }
 
-function MobileMenu({ setIsMenuOpen }) {
+function MobileMenu({ setIsMenuOpen }: { setIsMenuOpen: any }) {
   return (
     <div className="md:hidden bg-white shadow-lg">
       <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col space-y-4">
